@@ -1,0 +1,60 @@
+Week 6 Pre Mid Sem Break!
+- Use HTML version for easier copying
+
+Separate things into multiple terraform files
+Why?
+- Easier to manage
+- Easier to find the bugs
+
+Health checks ensure request traffic is shifted away from a failed instance
+
+This practical is useful for stage 3
+    - You need to be careful what you are using
+    - Is there a database bottleneck?
+    - Why this test 3 is not fulfilling the request
+
+Error help?
+- EC2 still booting up, in the next instance it should run
+
+After this practical?
+- You can do stage-2 (load balancing)
+- You can do stage-3 (k6 testing)
+BE CAREFUL ABOUT YOUR CREDIT, ALWAYS DESTROY TO AVOID HEAVY CREDIT CHARGES
+
+Do not delete the:
+Default Virtual Private Controller (VPC) is the network infrastructure for you only
+This will stop you from destroying terraform
+
+If you do delete the VPC?
+- Create a new VPC 
+- Make it default 
+- Won't cost anything as long you don't access the network (there will be traffic cost)
+- Alternatively? Start lab again (credentials change; but idk if vpc changes)
+
+Practical help?
+- You may do 'Create Application Load Balancer' under EC2 > Load Balancer on Amazon
+But better to do it using Terraform apply after you have setup all the code
+
+Where is what?
+Note: Run k6 to see alarm and health monitoring in action 
+- CloudWatch for CPU Utilization, Alarms
+    - CloudWatch > All Alarms 
+- Elastic Container Service for Health monitoring  
+    - Amazon ECS > Clusters > taskoverflow > Services > taskoverflow > Health 
+- EC2 for your-load-balancer-url 
+    - For k6 step, 
+    const res = http.get('http://your-loadBalancer-url-here/api/v1/todos');
+    replace your-loadBalancer-url-here with the following
+    EC2 > Load Balancers > taskoverflow > DNS Name - taskoverflow-2002907045.us-east-1.elb.amazonaws.com
+
+
+Assignment?
+- Just ECS 
+- Create less than 15 instances
+- Whatever you create delete it
+
+
+- You have been asked to do Microservices architecture, where each server has its own database
+    - Very little concept of relational database 
+    - User Microservices
+- There are read only database, write only database (a design choice for you)
