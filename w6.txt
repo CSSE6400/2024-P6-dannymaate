@@ -47,6 +47,9 @@ Note: Run k6 to see alarm and health monitoring in action
     replace your-loadBalancer-url-here with the following
     EC2 > Load Balancers > taskoverflow > DNS Name - taskoverflow-2002907045.us-east-1.elb.amazonaws.com
 
+Tips? 
+Be sure to run terraform destroy before you end the AWS lab!
+Don't worry about failed tests w6 on repo, they're out of date
 
 Assignment?
 - Just ECS 
